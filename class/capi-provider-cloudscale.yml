@@ -20,11 +20,9 @@ parameters:
       - input_type: external
         output_path: .
         input_paths:
-          - ${_base_directory}/scripts/envsubst-dir
+          - ${_base_directory}/envsubst-dir
         # map env vars from parameters as needed
-        env_vars:
-          ENVSUBST_VERSION: v1.4.3
-          CLOUDSCALE_API_TOKEN: ${capi_provider_cloudscale:variables:cloudscale_api_token}
+        env_vars: ${capi_provider_cloudscale:variables}
         args:
           - ${_base_directory}/manifests/capi-provider-cloudscale-rendered
           - \${compiled_target_dir}/capi-provider-cloudscale/10_kustomize

@@ -1,4 +1,3 @@
-// main template for capi-provider-cloudscale
 local com = import 'lib/commodore.libjsonnet';
 local kap = import 'lib/kapitan.libjsonnet';
 local kube = import 'lib/kube.libjsonnet';
@@ -6,8 +5,8 @@ local inv = kap.inventory();
 // The hiera parameters for the component
 local params = inv.parameters.capi_provider_cloudscale;
 
-assert std.member(inv.applications, 'capi-core') : 'Application capi-core is not available';
-assert std.length(params.variables.cloudscale_api_token) > 0 : 'capi-provider-cloudscale:variables:cloudscale_api_token must be set';
+assert std.member(inv.applications, 'capi-core') : 'Component capi-provider-cloudscale requires component capi-core';
+assert std.length(params.variables.CLOUDSCALE_API_TOKEN) > 0 : 'capi-provider-cloudscale:variables:CLOUDSCALE_API_TOKEN must be set';
 
 local manifest_path = 'config/default';
 
