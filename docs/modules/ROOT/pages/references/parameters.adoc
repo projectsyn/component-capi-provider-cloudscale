@@ -8,7 +8,8 @@ The parent key for all of the following parameters is `capi_provider_cloudscale`
 type:: string
 default:: `syn-cluster-api`
 
-The namespace in which to deploy this component. The component assumes that this namespace already exists via dependency `component-capi-core`.
+The namespace in which to deploy this component.
+The component assumes that this namespace already exists via dependency `component-capi-core`.
 
 == `images`
 
@@ -29,7 +30,7 @@ type:: dict
 default:: See `class/defaults.yml`
 
 An object with environment variables that the generated manifests will be templated with, similar to `clusterctl`.
-variables should be specified in the format:
+Variables should be specified in the format:
 
 [source,yaml]
 ----
@@ -37,7 +38,8 @@ variables:
   CLOUDSCALE_API_TOKEN: <cloudscale-api-token>
 ----
 
-Note that the `CLOUDSCALE_API_TOKEN` variable is mandatory for this component. The default is a reference to vault.
+Note that the `CLOUDSCALE_API_TOKEN` variable is mandatory for this component.
+The default is a reference to vault.
 
 == Example
 

@@ -3,7 +3,4 @@
 applications:
   - capi-core
 
-parameters:
-  capi_provider_cloudscale:
-    variables:
-      cloudscale_api_token: "MY_CLOUDSCALE_API_TOKEN"
+parameters: {}
