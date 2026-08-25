@@ -1,3 +1,6 @@
 # Overwrite parameters here
 
-# parameters: {...}
+applications:
+  - capi-core
+
+parameters: {}

@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: cluster-api-provider-cloudscale
+    cluster.x-k8s.io/provider: infrastructure-cloudscale-ch-cloudscale
+  name: capcs-serving-cert
+  namespace: syn-cluster-api
+spec:
+  dnsNames:
+  - capcs-webhook-service.capcs-system.svc
+  - capcs-webhook-service.capcs-system.svc.cluster.local
+  issuerRef:
+    kind: Issuer
+    name: capcs-selfsigned-issuer
+  secretName: webhook-server-cert

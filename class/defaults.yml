@@ -2,4 +2,13 @@ parameters:
   capi_provider_cloudscale:
     =_metadata:
       multi_tenant: true
-    namespace: syn-capi-provider-cloudscale
+    namespace: syn-cluster-api
+
+    images:
+      capi-provider-cloudscale:
+        registry: quay.io
+        image: cloudscalech/cluster-api-cloudscale-controller
+        tag: v1.0.1
+
+    variables:
+      CLOUDSCALE_API_TOKEN: ?{vaultkv:${cluster:tenant}/${cluster:name}/cloudscale/token}

@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: cluster-api-provider-cloudscale
+    cluster.x-k8s.io/provider: infrastructure-cloudscale-ch-cloudscale
+  name: capcs-selfsigned-issuer
+  namespace: syn-cluster-api
+spec:
+  selfSigned: {}

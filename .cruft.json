@@ -21,9 +21,9 @@
       "auto_release": "y",
       "copyright_holder": "VSHN AG <info@vshn.ch>",
       "copyright_year": "2026",
-      "github_owner": "vshn",
+      "github_owner": "projectsyn",
       "github_name": "component-capi-provider-cloudscale",
-      "github_url": "https://github.com/vshn/component-capi-provider-cloudscale",
+      "github_url": "https://github.com/projectsyn/component-capi-provider-cloudscale",
       "_template": "https://github.com/projectsyn/commodore-component-template.git",
       "_commit": "c61b93c6740fb1aaad80e82716a8400d2df31e80"
     }

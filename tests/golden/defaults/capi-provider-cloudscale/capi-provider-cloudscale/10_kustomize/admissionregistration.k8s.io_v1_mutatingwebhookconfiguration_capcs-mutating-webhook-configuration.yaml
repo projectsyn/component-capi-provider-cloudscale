@@ -1,0 +1,90 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  annotations:
+    cert-manager.io/inject-ca-from: capcs-system/capcs-serving-cert
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    cluster.x-k8s.io/provider: infrastructure-cloudscale-ch-cloudscale
+  name: capcs-mutating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: capcs-webhook-service
+      namespace: syn-cluster-api
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta2-cloudscalecluster
+  failurePolicy: Fail
+  name: mcloudscalecluster-v1beta2.kb.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - cloudscaleclusters
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: capcs-webhook-service
+      namespace: syn-cluster-api
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta2-cloudscaleclustertemplate
+  failurePolicy: Fail
+  name: mcloudscaleclustertemplate-v1beta2.kb.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - cloudscaleclustertemplates
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: capcs-webhook-service
+      namespace: syn-cluster-api
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta2-cloudscalemachine
+  failurePolicy: Fail
+  name: mcloudscalemachine-v1beta2.kb.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - cloudscalemachines
+  sideEffects: None
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    service:
+      name: capcs-webhook-service
+      namespace: syn-cluster-api
+      path: /mutate-infrastructure-cluster-x-k8s-io-v1beta2-cloudscalemachinetemplate
+  failurePolicy: Fail
+  name: mcloudscalemachinetemplate-v1beta2.kb.io
+  rules:
+  - apiGroups:
+    - infrastructure.cluster.x-k8s.io
+    apiVersions:
+    - v1beta2
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - cloudscalemachinetemplates
+  sideEffects: None

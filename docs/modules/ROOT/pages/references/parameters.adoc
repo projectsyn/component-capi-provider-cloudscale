@@ -6,14 +6,49 @@ The parent key for all of the following parameters is `capi_provider_cloudscale`
 
 [horizontal]
 type:: string
-default:: `syn-capi-provider-cloudscale`
+default:: `syn-cluster-api`
 
 The namespace in which to deploy this component.
+The component assumes that this namespace already exists via dependency `component-capi-core`.
 
+== `images`
+
+[horizontal]
+type:: dict
+default:: See `class/defaults.yml`
+
+The default Docker image location and tag to use for the CAPI provider cloudscale component (key `capi-provider-cloudscale`).
+
+Entries in this dict should be dictionaries with keys `registry`, `image`, and `tag`. This structure provides the basis for dependency maintenance with Renovate.
+
+The value of `capi-provider-cloudscale.tag` in this dict is used by the component to select the version of the upstream CAPI provider cloudscale components.
+
+== `variables`
+
+[horizontal]
+type:: dict
+default:: See `class/defaults.yml`
+
+An object with environment variables that the generated manifests will be templated with, similar to `clusterctl`.
+Variables should be specified in the format:
+
+[source,yaml]
+----
+variables:
+  CLOUDSCALE_API_TOKEN: <cloudscale-api-token>
+----
+
+Note that the `CLOUDSCALE_API_TOKEN` variable is mandatory for this component.
+The default is a reference to vault.
 
 == Example
 
 [source,yaml]
 ----
 namespace: example-namespace
+images:
+  capi-provider-cloudscale:
+    tag: v1.14.0
+variables:
+  CLOUDSCALE_API_TOKEN: value
 ----
