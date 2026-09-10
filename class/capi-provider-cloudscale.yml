@@ -26,3 +26,9 @@ parameters:
         args:
           - ${_base_directory}/manifests/capi-provider-cloudscale-rendered
           - \${compiled_target_dir}/capi-provider-cloudscale/10_kustomize
+
+      # Cleanup intermediate manifests
+      - input_type: remove
+        input_paths:
+          - ${_base_directory}/manifests/
+        output_path: .
