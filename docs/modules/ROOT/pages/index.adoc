@@ -2,4 +2,9 @@
 
 capi-provider-cloudscale is a Commodore component to manage capi-provider-cloudscale.
 
+[TIP]
+====
+The component labels all CRDs with `clusterctl.cluster.x-k8s.io=""` which is used by the cluster API `clusterctl` CLI when discovering cluster API resources on a cluster.
+====
+
 See the xref:references/parameters.adoc[parameters] reference for further details.

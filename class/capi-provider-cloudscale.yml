@@ -6,7 +6,7 @@ parameters:
         input_type: jsonnet
         output_path: .
       - input_paths:
-          - ${_base_directory}/component/main.jsonnet
+          - ${_base_directory}/component/cloudscale-provider.jsonnet
         input_type: jsonnet
         output_path: ${_base_directory}/manifests/capi-provider-cloudscale/
       - input_type: external

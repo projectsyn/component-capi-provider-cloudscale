@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     cluster.x-k8s.io/provider: infrastructure-cloudscale-ch-cloudscale
     cluster.x-k8s.io/v1beta2: v1beta2
+    clusterctl.cluster.x-k8s.io: ""
   name: cloudscaleclusters.infrastructure.cluster.x-k8s.io
 spec:
   group: infrastructure.cluster.x-k8s.io
