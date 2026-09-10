@@ -5,9 +5,11 @@ local argocd = import 'lib/argocd.libjsonnet';
 
 local app = argocd.App('capi-provider-cloudscale', params.namespace) {
   spec+: {
-    syncOptions+: [
-      'ServerSideApply=true',
-    ],
+    syncPolicy+: {
+      syncOptions+: [
+        'ServerSideApply=true',
+      ],
+    },
   },
 };
 
