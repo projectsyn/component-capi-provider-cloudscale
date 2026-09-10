@@ -30,6 +30,110 @@ com.Kustomization(
       },
     ],
     patchesStrategicMerge: [ 'rm-namespace.yaml' ],
+    replacements: [
+      {
+        source: {
+          kind: 'Service',
+          version: 'v1',
+          name: 'controller-manager-metrics-service',
+          fieldPath: 'metadata.namespace',
+        },
+        targets: [
+          {
+            select: {
+              kind: 'Certificate',
+              group: 'cert-manager.io',
+              version: 'v1',
+              name: 'metrics-certs',
+            },
+            fieldPaths: [
+              'spec.dnsNames.0',
+              'spec.dnsNames.1',
+            ],
+            options: {
+              delimiter: '.',
+              index: 1,
+              create: true,
+            },
+          },
+        ],
+      },
+      {
+        source: {
+          kind: 'Service',
+          version: 'v1',
+          name: 'webhook-service',
+          fieldPath: '.metadata.namespace',
+        },
+        targets: [
+          {
+            select: {
+              kind: 'Certificate',
+              group: 'cert-manager.io',
+              version: 'v1',
+              name: 'serving-cert',
+            },
+            fieldPaths: [
+              '.spec.dnsNames.0',
+              '.spec.dnsNames.1',
+            ],
+            options: {
+              delimiter: '.',
+              index: 1,
+              create: true,
+            },
+          },
+        ],
+      },
+      {
+        source: {
+          kind: 'Certificate',
+          group: 'cert-manager.io',
+          version: 'v1',
+          name: 'serving-cert',
+          fieldPath: '.metadata.namespace',
+        },
+        targets: [
+          {
+            select: {
+              kind: 'ValidatingWebhookConfiguration',
+            },
+            fieldPaths: [
+              '.metadata.annotations.[cert-manager.io/inject-ca-from]',
+            ],
+            options: {
+              delimiter: '/',
+              index: 0,
+              create: true,
+            },
+          },
+        ],
+      },
+      {
+        source: {
+          kind: 'Certificate',
+          group: 'cert-manager.io',
+          version: 'v1',
+          name: 'serving-cert',
+          fieldPath: '.metadata.namespace',
+        },
+        targets: [
+          {
+            select: {
+              kind: 'MutatingWebhookConfiguration',
+            },
+            fieldPaths: [
+              '.metadata.annotations.[cert-manager.io/inject-ca-from]',
+            ],
+            options: {
+              delimiter: '/',
+              index: 0,
+              create: true,
+            },
+          },
+        ],
+      },
+    ],
   },
 ) {
   'rm-namespace': [

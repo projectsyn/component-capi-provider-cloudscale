@@ -9,8 +9,8 @@ metadata:
   namespace: syn-cluster-api
 spec:
   dnsNames:
-  - capcs-webhook-service.capcs-system.svc
-  - capcs-webhook-service.capcs-system.svc.cluster.local
+  - capcs-webhook-service.syn-cluster-api.svc
+  - capcs-webhook-service.syn-cluster-api.svc.cluster.local
   issuerRef:
     kind: Issuer
     name: capcs-selfsigned-issuer

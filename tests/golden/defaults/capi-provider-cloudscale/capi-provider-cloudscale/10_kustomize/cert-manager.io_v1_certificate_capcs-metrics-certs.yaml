@@ -9,8 +9,8 @@ metadata:
   namespace: syn-cluster-api
 spec:
   dnsNames:
-  - capcs-controller-manager-metrics-service.capcs-system.svc
-  - capcs-controller-manager-metrics-service.capcs-system.svc.cluster.local
+  - capcs-controller-manager-metrics-service.syn-cluster-api.svc
+  - capcs-controller-manager-metrics-service.syn-cluster-api.svc.cluster.local
   issuerRef:
     kind: Issuer
     name: capcs-selfsigned-issuer
