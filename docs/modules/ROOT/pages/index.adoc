@@ -8,3 +8,5 @@ The component labels all CRDs with `clusterctl.cluster.x-k8s.io=""` which is use
 ====
 
 See the xref:references/parameters.adoc[parameters] reference for further details.
+
+See the xref:references/library.adoc[component library] reference for details regarding the functionality provided by the component's Jsonnet library.
