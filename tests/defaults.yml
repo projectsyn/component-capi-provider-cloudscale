@@ -7,7 +7,7 @@ parameters:
   kapitan:
     dependencies:
       - type: https
-        source: https://raw.githubusercontent.com/projectsyn/component-capi-core/feat/enable-clusterctl/lib/capi-core.libsonnet
+        source: https://raw.githubusercontent.com/projectsyn/component-capi-core/master/lib/capi-core.libsonnet
         output_path: vendor/lib/capi-core.libsonnet
 
   capi_core:
