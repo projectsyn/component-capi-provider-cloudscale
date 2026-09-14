@@ -1,0 +1,38 @@
+= Component Library
+
+The component includes a Jsonnet library which provides helpers for creating cloudscale CAPI custom resources.
+
+This page provides details for each field and function provided by the library.
+
+[NOTE]
+====
+The component doesn't provide a function for custom resource `CloudscaleMachine`.
+That custom resource is created by the controller and usually doesn't need to be created directly.
+====
+
+== `apiGroup`
+
+This field stores the Kubernetes `apiGroup` for the custom resources.
+
+Users can use this field instead of hard-coding the API group when they need to reference a cloudscale CAPI custom resource via `apiGroup`, `kind` and `name`.
+
+== `CloudscaleCluster(name)`
+
+This function creates a minimal `CloudscaleCluster` custom resource.
+
+The function only populates fields `apiVersion`, `kind` and `metadata.name`.
+Field `metadata.name` is set to the value of argument `name`.
+
+== `CloudscaleClusterTemplate(name)`
+
+This function creates a minimal `CloudscaleClusterTemplate` custom resource.
+
+The function only populates fields `apiVersion`, `kind` and `metadata.name`.
+Field `metadata.name` is set to the value of argument `name`.
+
+== `CloudscaleMachineTemplate(name)`
+
+This function creates a minimal `CloudscaleMachineTemplate` custom resource.
+
+The function only populates fields `apiVersion`, `kind` and `metadata.name`.
+Field `metadata.name` is set to the value of argument `name`.
