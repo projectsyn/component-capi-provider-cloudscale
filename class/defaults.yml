@@ -8,7 +8,7 @@ parameters:
       capi-provider-cloudscale:
         registry: quay.io
         image: cloudscalech/cluster-api-cloudscale-controller
-        tag: v1.0.1
+        tag: v1.1.1
 
     variables:
       CLOUDSCALE_API_TOKEN: ?{vaultkv:${cluster:tenant}/${cluster:name}/cloudscale/token}
