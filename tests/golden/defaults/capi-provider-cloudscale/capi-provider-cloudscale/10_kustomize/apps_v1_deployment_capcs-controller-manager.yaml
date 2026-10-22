@@ -43,7 +43,7 @@ spec:
             secretKeyRef:
               key: token
               name: capcs-cloudscale
-        image: quay.io/cloudscalech/cluster-api-cloudscale-controller:v1.0.1
+        image: quay.io/cloudscalech/cluster-api-cloudscale-controller:v1.1.1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
